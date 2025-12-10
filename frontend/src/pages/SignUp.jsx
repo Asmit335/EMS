@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import axios from "axios"
-import {Link, useNavigate} from "react-router-dom"
-const Login = () => {
-  const navigate=useNavigate()
+import { Link } from 'react-router-dom';
+const SignUp = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -10,23 +8,6 @@ const Login = () => {
 
   const handleSubmit = async(e) => {
     e.preventDefault();
-    try {
-          const response=await axios.post("http://localhost:3000/api/auth/login",{email,password})
-          if(response.status===200){
-            localStorage.setItem("token",response.data.token)
-          if(response.data.user.role==="admin"){
-           navigate("/adminDashboard")
-          }
-          else{
-            navigate("/employeeDashboard")
-          }
-          }
-          
-
-    } catch (error) {
-      console.log(error);
-      
-    }
   };
 
   return (
@@ -36,7 +17,7 @@ const Login = () => {
         {/* Header */}
         <div className="bg-gradient-to-r from-blue-600 to-indigo-600 p-8 text-center">
           <h1 className="text-3xl font-bold text-white mb-2">Welcome to EMS</h1>
-          <p className="text-blue-100">Sign in to your account</p>
+          <p className="text-blue-100">Sign Up to your account</p>
         </div>
 
         {/* Form */}
@@ -44,6 +25,24 @@ const Login = () => {
           <form onSubmit={handleSubmit} className="space-y-6">
             
             {/* Email Input */}
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Name
+              </label>
+              <div className="relative">
+                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                 
+                </div>
+                <input
+                  type="name"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                  placeholder="ram thapa"
+                  required
+                />
+              </div>
+            </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Email Address
@@ -182,10 +181,10 @@ const Login = () => {
             <div className="text-center">
               <p className="text-sm text-gray-600">
                 Don't have an account?{' '}
-                <Link to="/signup"
+                <Link to="/login"
                   className="font-medium text-blue-600 hover:text-blue-800 transition"
                 >
-                  Sign up
+                  Sign In
                 </Link>
               </p>
             </div>
@@ -203,4 +202,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;

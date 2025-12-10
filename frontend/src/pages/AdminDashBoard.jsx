@@ -10,7 +10,6 @@ const EMSDashboard = () => {
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [activeTab, setActiveTab] = useState('dashboard');
 
-  // Mock data for EMS
   const stats = [
     { title: 'Total Employees', value: '245', change: '+8', trend: 'up', icon: Users, color: 'bg-blue-500' },
     { title: 'Present Today', value: '218', change: '89%', trend: 'up', icon: CheckCircle, color: 'bg-green-500' },
@@ -65,7 +64,6 @@ const EMSDashboard = () => {
 
   return (
     <div className="flex h-screen bg-gray-50">
-      {/* Sidebar */}
       <div className={`${sidebarOpen ? 'w-64' : 'w-20'} bg-gradient-to-b from-blue-900 to-indigo-900 text-white transition-all duration-300`}>
         <div className="p-6 border-b border-blue-800">
           <div className="flex items-center justify-between">
@@ -117,9 +115,7 @@ const EMSDashboard = () => {
         )}
       </div>
 
-      {/* Main Content */}
       <div className="flex-1 overflow-auto">
-        {/* Header */}
         <header className="bg-white shadow-sm px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex-1 max-w-xl">
@@ -158,9 +154,7 @@ const EMSDashboard = () => {
           </div>
         </header>
 
-        {/* Content */}
         <main className="p-6">
-          {/* Welcome Card */}
           <div className="bg-gradient-to-r from-blue-600 to-indigo-700 rounded-2xl p-8 text-white mb-8">
             <div className="flex justify-between items-center">
               <div>
@@ -177,7 +171,6 @@ const EMSDashboard = () => {
             </div>
           </div>
 
-          {/* Stats Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 mb-8">
             {stats.map((stat, index) => (
               <div key={index} className="bg-white rounded-xl shadow-sm p-4 border hover:shadow-md transition-shadow">
@@ -200,11 +193,8 @@ const EMSDashboard = () => {
             ))}
           </div>
 
-          {/* Main Content Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {/* Left Column */}
             <div className="lg:col-span-2 space-y-6">
-              {/* Recent Activities */}
               <div className="bg-white rounded-xl shadow-sm p-6 border">
                 <div className="flex justify-between items-center mb-6">
                   <h2 className="text-xl font-bold">Recent Activities</h2>
@@ -228,7 +218,6 @@ const EMSDashboard = () => {
                 </div>
               </div>
 
-              {/* Department Overview */}
               <div className="bg-white rounded-xl shadow-sm p-6 border">
                 <h2 className="text-xl font-bold mb-6">Department Overview</h2>
                 <div className="overflow-x-auto">
@@ -276,9 +265,7 @@ const EMSDashboard = () => {
               </div>
             </div>
 
-            {/* Right Column */}
             <div className="space-y-6">
-              {/* Employees on Leave */}
               <div className="bg-white rounded-xl shadow-sm p-6 border">
                 <div className="flex justify-between items-center mb-6">
                   <h2 className="text-xl font-bold">Employees on Leave</h2>
@@ -305,7 +292,6 @@ const EMSDashboard = () => {
                 </div>
               </div>
 
-              {/* Upcoming Events */}
               <div className="bg-white rounded-xl shadow-sm p-6 border">
                 <h2 className="text-xl font-bold mb-6">Upcoming Events</h2>
                 <div className="space-y-4">
@@ -332,7 +318,6 @@ const EMSDashboard = () => {
                 </button>
               </div>
 
-              {/* Quick Actions */}
               <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl shadow-sm p-6 border border-blue-100">
                 <h2 className="text-xl font-bold mb-4">Quick Actions</h2>
                 <div className="grid grid-cols-2 gap-3">
